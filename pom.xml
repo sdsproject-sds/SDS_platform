@@ -53,17 +53,24 @@
                 <version>13.11</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-slf4j</artifactId>
+                <version>13.11</version>
+            </dependency>
+
+
             <!-- Jackson dependencies -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.16.1</version>
+                <version>2.21.1</version>
             </dependency>
 
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.16.1</version>
+                <version>2.21.1</version>
             </dependency>
 
         </dependencies>
