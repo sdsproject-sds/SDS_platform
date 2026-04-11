@@ -14,6 +14,9 @@ import java.time.Duration;
  */
 public class FeignClientFactory {
 
+    private FeignClientFactory() {
+    }
+
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(FeignClientFactory.class);
 
     public static <T> T createConfiguredClient(Class<T> clientClass, String baseUrl,
