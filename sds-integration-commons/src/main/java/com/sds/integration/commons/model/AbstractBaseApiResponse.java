@@ -36,8 +36,8 @@ public abstract class AbstractBaseApiResponse<T> {
 
     protected AbstractBaseApiResponse(T data, boolean success) {
         this.success = success;
-        this.responseCode = success? "SUCCESS" : "ERROR";
-        this.responseMessage = success? "Success" : "Error";
+        this.responseCode = success ? "SUCCESS" : "ERROR";
+        this.responseMessage = success ? "Success" : "Error";
         this.timestamp = Instant.now();
         this.data = data;
     }
@@ -101,15 +101,31 @@ public abstract class AbstractBaseApiResponse<T> {
     /**
      * Success response
      */
-    protected abstract AbstractBaseApiResponse<T> success(String code, String message, T data);
+    protected AbstractBaseApiResponse<T> success(String code, String message, T data) {
+
+        this.success = true;
+        this.responseCode = code;
+        this.responseMessage = message;
+        this.data = data;
+        return this;
+    }
 
     /**
      * Error response with error reference
      */
-    public abstract AbstractBaseApiResponse<T> error(String code, String message, String description, String errorReference);
+    public AbstractBaseApiResponse<T> error(String code, String message, String description, String errorReference) {
+        this.success = false;
+        this.responseCode = code;
+        this.responseMessage = message;
+        this.responseDescription = description;
+        this.errorReference = errorReference;
+        return this;
+    }
 
     /**
      * Error response without error reference (for backward compatibility)
      */
-    public abstract AbstractBaseApiResponse<T> error(String code, String message, String description);
+    public AbstractBaseApiResponse<T> error(String code, String message, String description) {
+        return error(code, message, description, null);
+    }
 }
