@@ -1,4 +1,4 @@
-package exception;
+package com.sds.communication.exception;
 
 /**
  * @author Joseph.Kibe. Created On 11 Apr 2026 02:55

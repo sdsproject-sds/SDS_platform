@@ -1,7 +1,8 @@
-package feign;
+package com.sds.communication.feign;
 
 
-import exception.SdsCommunicationException;
+import com.sds.communication.exception.SdsCommunicationException;
+import feign.*;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
