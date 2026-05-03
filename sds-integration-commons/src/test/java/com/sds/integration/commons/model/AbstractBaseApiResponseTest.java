@@ -17,7 +17,7 @@ class AbstractBaseApiResponseTest {
         AbstractBaseApiResponse<String> apiResponse = new AbstractBaseApiResponse<>(true, "200", "Operation Successful",
                 null, null, null, null) {
             @Override
-            protected AbstractBaseApiResponse<String> success(String code, String message, String data) {
+            public AbstractBaseApiResponse<String> success(String code, String message, String data) {
                 return null;
             }
 
@@ -45,7 +45,7 @@ class AbstractBaseApiResponseTest {
         AbstractBaseApiResponse<String> apiResponse = new AbstractBaseApiResponse<>(false, "500", "Operation Failed",
                 null, null, null, null) {
             @Override
-            protected AbstractBaseApiResponse<String> success(String code, String message, String data) {
+            public AbstractBaseApiResponse<String> success(String code, String message, String data) {
                 return null;
             }
 
@@ -68,7 +68,7 @@ class AbstractBaseApiResponseTest {
         AbstractBaseApiResponse<String> apiResponse = new AbstractBaseApiResponse<>(false, "500", "Operation Failed",
                 null, null, null, null) {
             @Override
-            protected AbstractBaseApiResponse<String> success(String code, String message, String data) {
+            public AbstractBaseApiResponse<String> success(String code, String message, String data) {
                 return null;
             }
 
@@ -97,7 +97,7 @@ class AbstractBaseApiResponseTest {
         AbstractBaseApiResponse<String> apiResponse = new AbstractBaseApiResponse<>(true, "200", "Operation Successful",
                 null, null, null, null) {
             @Override
-            protected AbstractBaseApiResponse<String> success(String code, String message, String data) {
+            public AbstractBaseApiResponse<String> success(String code, String message, String data) {
                 return null;
             }
 
@@ -126,7 +126,7 @@ class AbstractBaseApiResponseTest {
         AbstractBaseApiResponse<String> apiResponse = new AbstractBaseApiResponse<>(true, "200", "Operation Successful",
                 null, null, null, null) {
             @Override
-            protected AbstractBaseApiResponse<String> success(String code, String message, String data) {
+            public AbstractBaseApiResponse<String> success(String code, String message, String data) {
                 return null;
             }
 
@@ -159,7 +159,7 @@ class AbstractBaseApiResponseTest {
         AbstractBaseApiResponse<String> apiResponse = new AbstractBaseApiResponse<>(false, "200", "Operation Successful",
                 null, null, null, null) {
             @Override
-            protected AbstractBaseApiResponse<String> success(String code, String message, String data) {
+            public AbstractBaseApiResponse<String> success(String code, String message, String data) {
                 return null;
             }
 

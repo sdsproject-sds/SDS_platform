@@ -101,7 +101,7 @@ public abstract class AbstractBaseApiResponse<T> {
     /**
      * Success response
      */
-    protected AbstractBaseApiResponse<T> success(String code, String message, T data) {
+    public AbstractBaseApiResponse<T> success(String code, String message, T data) {
 
         this.success = true;
         this.responseCode = code;
