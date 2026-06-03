@@ -16,15 +16,6 @@
         <module>sds-integration-commons</module>
     </modules>
 
-<<<<<<< HEAD
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>github</id>-->
-<!--            <name>GitHub Packages</name>-->
-<!--            <url>https://maven.pkg.github.com/sdsproject-sds/SDS_platform</url>-->
-<!--        </repository>-->
-<!--    </distributionManagement>-->
-=======
     <distributionManagement>
         <repository>
             <id>github</id>
@@ -32,7 +23,6 @@
             <url>https://maven.pkg.github.com/sdsproject-sds/SDS_platform</url>
         </repository>
     </distributionManagement>
->>>>>>> 7cf5851ac5d867e54e1bc66a68634b6a5008ece1
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
