@@ -9,11 +9,23 @@ option java_outer_classname = "LocationProto";
 service LocationService {
     rpc GetSubDivision(CoordinatesRequest) returns (SubDivisionResponse);
     rpc GetDivision(CoordinatesRequest) returns (DivisionResponse);
+    rpc GetDivisionByParams(GetDivisionRequest) returns (DivisionResponse);
+    rpc GeSubDivisionByParams(GetSubDivisionRequest) returns (SubDivisionResponse);
 }
 
+//Search Division and Sub division request
 message CoordinatesRequest {
     double latitude = 1;
     double longitude = 2;
+}
+
+// Search Division and Sub division  by is
+message GetDivisionRequest{
+    string divisionId = 1;
+}
+
+message GetSubDivisionRequest{
+    string subDivisionId = 1;
 }
 
 message SubDivisionResponse {
