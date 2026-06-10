@@ -11,6 +11,8 @@ service LocationService {
     rpc GetDivision(CoordinatesRequest) returns (DivisionResponse);
     rpc GetDivisionByParams(GetDivisionRequest) returns (DivisionResponse);
     rpc GeSubDivisionByParams(GetSubDivisionRequest) returns (SubDivisionResponse);
+    rpc NotifyNearbyServiceProviders(NotifyNearbyRequest) returns (NotifyNearbyResponse);
+
 }
 
 //Search Division and Sub division request
@@ -27,6 +29,26 @@ message GetDivisionRequest{
 message GetSubDivisionRequest{
     string subDivisionId = 1;
 }
+
+// Notify nearby service request
+message NotifyNearbyRequest {
+    double latitude = 1;
+    double longitude = 2;
+    string requestId = 3;
+    string requestDetails = 4;
+    double radius = 5;
+    repeated string serviceTypes = 6;
+    map<string, string> additionalMetadata = 7;
+}
+
+// Notify nearby service response
+message NotifyNearbyResponse {
+    bool success = 1;
+    string code = 2;
+    string message = 3;
+    string data = 4;
+}
+
 
 message SubDivisionResponse {
     bool available = 1;
