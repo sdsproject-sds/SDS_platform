@@ -1,6 +1,8 @@
 package com.sds.integration.commons.messaging;
 
 
+import com.sds.integration.commons.messaging.exception.NotificationMessageStreamException;
+import com.sds.integration.commons.messaging.model.notification.NotificationTopic;
 import tools.jackson.databind.ObjectMapper;
 import com.sds.integration.commons.messaging.model.notification.AbstractNotification;
 import com.sds.integration.commons.messaging.model.notification.NotificationData;
@@ -20,16 +22,28 @@ import java.util.HexFormat;
 @Slf4j
 public class KafkaNotificationStreamService <T extends NotificationData> {
 
-    public void publishTransactionReportEvent(String topic, AbstractNotification<T> message, StreamBridge streamBridge, MimeType mimeType, String serviceKey) {
+    /**
+     * Publishes a Notification event to a Kafka topic using the provided StreamBridge.
+     *
+     * @param topic       The Kafka topic to which the notification event should be published.
+     * @param message     The notification message containing the notification data and metadata to be published.
+     * @param streamBridge The StreamBridge instance used to send the message to the Kafka topic.
+     * @param mimeType    The MIME type of the message being sent to the Kafka topic.
+     * @param serviceKey  The service key used to generate the MAC-SHA256 signature for message validation.
+     * @throws NotificationMessageStreamException If an error occurs during the publishing of the message to the Kafka topic.
+     */
+    public void publishTransactionReportEvent(NotificationTopic topic, AbstractNotification<T> message, StreamBridge streamBridge, MimeType mimeType, String serviceKey) {
         try {
 
             log.info("Publishing Notification message to Kafka topic: {}  notificationId {}", topic, message.getNotificationId());
             message.setSignature(getMacSha256Signature(message, serviceKey));
 
-            streamBridge.send(topic, message, mimeType);
+            topic = topic == null ? NotificationTopic.PUSH_NOTIFICATIONS : topic;
+
+            streamBridge.send(topic.name(), message, mimeType);
             log.info("Notification message published to Kafka topic: {}  notificationId {}", topic, message.getNotificationId());
         } catch (Exception e) {
-            throw new NotficationMessageStreamException("Failed to publish message to Kafka topic: " + topic);
+            throw new NotificationMessageStreamException("Failed to publish message to Kafka topic: " + topic);
         }
     }
 
