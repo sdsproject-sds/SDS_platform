@@ -3,7 +3,9 @@ package com.sds.integration.commons.messaging.model.notification;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author Joseph.Kibe. Created On 13 Jun 2026 18:52
@@ -20,6 +22,8 @@ import lombok.NoArgsConstructor;
         @JsonSubTypes.Type(value = EmailNotificationData.class, name = "EMAIL"),
         @JsonSubTypes.Type(value = DevicePushNotificationData.class, name = "DEVICE_PUSH")
 })
+@Getter
+@Setter
 public abstract class NotificationData {
     protected NotificationChannel notificationChannel;
 }
