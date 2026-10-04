@@ -2,6 +2,9 @@ package com.sds.security.details;
 
 
 import com.sds.security.exceptions.SdsPlatformAuthenticationException;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * @author Joseph.Kibe. Created On 24 Jun 2026 00:01
